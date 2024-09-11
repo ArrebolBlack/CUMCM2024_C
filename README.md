@@ -69,51 +69,21 @@
 ├── README.md # 项目说明文档
 └── ...
 
+
+├── algo                        # 算法实现目录
+│   ├── DQN                     # DQN 算法
+│   ├── PPO+Transformer          # PPO + Transformer 实现
+│   ├── ...                      # 其他算法
+├── data_structure.py            # 数据处理及通用接口定义
+├── Object_function.py           # 目标函数和约束条件
+├── env.py                       # 强化学习环境定义
+├── eval_obj_no_parallel.py       # 目标函数的多次采样统计
+├── README.md                    # 项目说明文档
+└── ...
+
+
 ## 欢迎交流！欢迎star
-有问题可以发我qq邮箱 207804110@qq.com
+有问题or交个朋友：qq邮箱 207804110@qq.com
 
 
-这里是2024年国赛 CUMCM C题的代码
-将这题看做是在所有种植策略的空间中进行搜索的问题，或是序列生成问题
-思路是首先构造一个足够充分的评估函数，计算种植策略的总利润（得分）
-然后定义一个强化学习环境，在动作空间中进行搜索。
-
-核心代码：
-data_structure.py 作为处理数据，定义通用数据形式，提供接口的类。将所有信息转化成 result的格式（plots，crops，years），使得以后所有计算以张量形式运行
-Object_function.py  目标函数 + 约束条件， 构成评估函数，也就是loss function
-env.py 强化学习环境, 单步决策
-algo 里是各种算法在该环境中的实现
-
-工具：
-eval_obj_no_parallel.py等 eval_obj 系列，用于多次采样统计一个函数的分布，可以拿来检查目标函数以及约束条件的分布，进行归一化
-
-一开始定义的搜索空间就是result的空间，（82，41,7）
-后面优化了一下，删除无意义或不可能出现的点，压缩成（1082，7），优化空间后的环境为env_new.py
-在data_struture里构建了来回转换的函数。
-
-对于第一题第二问，即修改一下目标函数主体部分的计算方式即可
-Object_function_1.2.py
-对于第二题，即更换一下未来七年几个数据的情况，之前是将2023年的情况复制，现在是按照题目条件进行一些随机的模拟
-data_structure_2.py
-
-所以，(简化情况下）
-1.1   data_structure.py + Object_function.py + env_new.py
-1.2   data_structure.py + Object_function_1.2.py + env_new.py
-2     data_structure_2.py + Object_function.py + env_new.py
-
-naive idea：先将环境模拟的足够真实，剩下的交给算法，慢慢找就行
-
-接下来介绍使用过的算法：
-简单搜索：
-Random_Agent 随机探索，猴子
-epsilon-greedy 策略
-UCB （因为是单步决策，所以视作多臂老虎机问题）
-深度强化学习：
-DQN
-DuelingDQN
-DuelingDQN + Attention ： 根据问题特性，采用Transformer Embedding Layer，捕捉输入输出之间及其本身的关系，更好地预测Q值
-PPO + Transformer ：想法是对于该题，一步输入所有观测信息（2023-2030的price，cost，sale，yield等等）， 输出一个2024-2030的种植策略，可以看作是序列生成问题，我们有一个评估这个序列生成的质量的函数，所以以Transformer为基础，PPO为框架，希望能捕捉到输入与输出之间的关系。
-启发式算法：
-GA 遗传算法
-PSO 粒子群算法
 
