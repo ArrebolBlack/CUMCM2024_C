@@ -81,6 +81,31 @@
 ├── README.md                    # 项目说明文档
 └── ...
 
+├── algo                        # 算法实现目录
+│   ├── DQN                     # DQN 算法
+│   ├── PPO+Transformer          # PPO + Transformer 实现
+│   ├── ...                      # 其他算法
+├── data_structure.py            # 数据处理及通用接口定义
+├── Object_function.py           # 目标函数和约束条件
+├── env.py                       # 强化学习环境定义
+├── eval_obj_no_parallel.py       # 目标函数的多次采样统计
+├── README.md                    # 项目说明文档
+└── ...
+
+## 项目结构
+
+- `algo` 算法实现目录
+  - `DQN` DQN 算法
+  - `PPO+Transformer` PPO + Transformer 实现
+  - ... 其他算法
+- `data_structure.py` 数据处理及通用接口定义
+- `Object_function.py` 目标函数和约束条件
+- `env.py` 强化学习环境定义
+- `eval_obj_no_parallel.py` 目标函数的多次采样统计
+- `README.md` 项目说明文档
+- ...
+
+
 
 ## 欢迎交流！欢迎star
 有问题or交个朋友：qq邮箱 207804110@qq.com
