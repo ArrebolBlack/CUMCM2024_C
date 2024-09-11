@@ -15,7 +15,7 @@
 
 ## 工具
 - **eval_obj_no_parallel.py** 系列：用于多次采样统计一个函数的分布，可以用于检查目标函数及约束条件的分布，并进行归一化处理。
-- 为了加快计算速度，提供了各个算法的并行、多线程实现
+- 为了加快计算速度，提供了各个算法和工具函数的并行、多线程实现，请注意区分
 
 ## 优化与压缩搜索空间
 初始定义的搜索空间为 `result` 的空间，大小为 `(82, 41, 7)`。经过优化，删除了无意义或不可能出现的点，压缩成 `(1082, 7)`。压缩空间后的环境文件为 `env_new.py`。在 `data_structure.py` 中构建了来回转换的函数。
@@ -56,41 +56,6 @@
 - **GA (遗传算法)**：通过自然选择、交叉和变异寻找最优解。
 - **PSO (粒子群算法)**：模拟粒子群的协作，寻找最优解。
 
-
-## 项目结构
-├── algo # 算法实现目录
-│ ├── DQN # DQN 算法
-│ ├── PPO+Transformer # PPO + Transformer 实现
-│ ├── ... # 其他算法
-├── data_structure.py # 数据处理及通用接口定义
-├── Object_function.py # 目标函数和约束条件
-├── env.py # 强化学习环境定义
-├── eval_obj_no_parallel.py # 目标函数的多次采样统计
-├── README.md # 项目说明文档
-└── ...
-
-
-├── algo                        # 算法实现目录
-│   ├── DQN                     # DQN 算法
-│   ├── PPO+Transformer          # PPO + Transformer 实现
-│   ├── ...                      # 其他算法
-├── data_structure.py            # 数据处理及通用接口定义
-├── Object_function.py           # 目标函数和约束条件
-├── env.py                       # 强化学习环境定义
-├── eval_obj_no_parallel.py       # 目标函数的多次采样统计
-├── README.md                    # 项目说明文档
-└── ...
-
-├── algo                        # 算法实现目录
-│   ├── DQN                     # DQN 算法
-│   ├── PPO+Transformer          # PPO + Transformer 实现
-│   ├── ...                      # 其他算法
-├── data_structure.py            # 数据处理及通用接口定义
-├── Object_function.py           # 目标函数和约束条件
-├── env.py                       # 强化学习环境定义
-├── eval_obj_no_parallel.py       # 目标函数的多次采样统计
-├── README.md                    # 项目说明文档
-└── ...
 
 ## 项目结构
 
